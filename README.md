@@ -1,2 +1,2 @@
 # learnReact
-https://olgagre.github.io/learnReact/my-app/public/
+https://olgagre.github.io/learnReact/
