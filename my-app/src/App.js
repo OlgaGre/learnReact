@@ -1,26 +1,30 @@
-import React from 'react';
-import { nanoid } from 'nanoid'
-const prods = [
-	{id:id(), name: 'product1', cost: 100},
-	{id:id(), name: 'product2', cost: 200},
-	{id:id(), name: 'product3', cost: 300},
-];
-function id() {
-	return nanoid()
-}
+// import React from 'react';
+
+import React, { useState } from "react";
+
 function App() {
-	const rows = prods.map(function(item) {
-		return <tr key={item.id}>
-			<td>{item.name} {item.id}</td>
-			<td>{item.cost}</td>
-		</tr>;
-	});
-	
-	return <table>
-		<tbody>
-			{rows}
-		</tbody>
-	</table>;
+  let [name, changeName] = useState("olga");
+  let [sname, changeSname] = useState("gre");
+  let [age, changeAge] = useState(18);
+  let [ban, changeBan] = useState(false);
+  return (
+    <div>
+      <span>{name}</span>
+      <button onClick={() => changeName("OLGA")}>change name</button>
+      <br></br>
+      <span>
+        {sname}
+        <button onClick={() => changeSname("GRE")}>change sname</button>
+      </span>
+			<br></br>
+      <span>{age}</span>
+      <button onClick={()=> changeAge(age ++)}>+</button>
+      <button onClick={()=> changeAge(age --)}>-</button>
+      <div>{ban ? "ban" : "no ban"}</div>
+      {!ban && <button onClick={() => changeBan(true)}>ban</button>}
+      {ban && <button onClick={() => changeBan(false)}>delete ban</button>}
+    </div>
+  );
 }
 
 export default App;
